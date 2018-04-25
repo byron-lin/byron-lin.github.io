@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"搜索博客上的内容","hits_empty":"找不到: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="系统：macOS High Sierra（10.13.3）  国内的下载工具，一点都不纯粹，总要植入广告、商城等等无关的功能，像某度网盘这种还会搞限速，很烦。好在有Aria2这神器。Aria2 是一款轻量的、支持多协议以及多线程的下载工具，它同时支持了 HTTP/HTTPS, FTP, SFTP, BitTorrent 和 Metalink 多种下载方式。它是用命令行交互的，但是已经有人为它开发了">
+<meta name="keywords" content="技术,macOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="告别迅雷，aria2安装并设置开机启动">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/告别迅雷，aria2安装并设置开机启动/index.html">
+<meta property="og:site_name" content="仰海的黑板报">
+<meta property="og:description" content="系统：macOS High Sierra（10.13.3）  国内的下载工具，一点都不纯粹，总要植入广告、商城等等无关的功能，像某度网盘这种还会搞限速，很烦。好在有Aria2这神器。Aria2 是一款轻量的、支持多协议以及多线程的下载工具，它同时支持了 HTTP/HTTPS, FTP, SFTP, BitTorrent 和 Metalink 多种下载方式。它是用命令行交互的，但是已经有人为它开发了">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11246403-733b7a81f5738621.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11246403-5b19a03edd77d305.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/11246403-1fc09011856238c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-24T10:43:14.304Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="告别迅雷，aria2安装并设置开机启动">
+<meta name="twitter:description" content="系统：macOS High Sierra（10.13.3）  国内的下载工具，一点都不纯粹，总要植入广告、商城等等无关的功能，像某度网盘这种还会搞限速，很烦。好在有Aria2这神器。Aria2 是一款轻量的、支持多协议以及多线程的下载工具，它同时支持了 HTTP/HTTPS, FTP, SFTP, BitTorrent 和 Metalink 多种下载方式。它是用命令行交互的，但是已经有人为它开发了">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/11246403-733b7a81f5738621.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/16/告别迅雷，aria2安装并设置开机启动/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>告别迅雷，aria2安装并设置开机启动 | 仰海的黑板报</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117910377-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117910377-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c862b71a14dd3a7203c6f8ea106f65d2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">仰海的黑板报</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/告别迅雷，aria2安装并设置开机启动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Byron">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="仰海的黑板报">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">告别迅雷，aria2安装并设置开机启动
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-16 21:10:31" itemprop="dateCreated datePublished" datetime="2018-04-16T21:10:31+08:00">2018-04-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-24 18:43:14" itemprop="dateModified" datetime="2018-04-24T18:43:14+08:00">2018-04-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/16/告别迅雷，aria2安装并设置开机启动/" class="leancloud_visitors" data-flag-title="告别迅雷，aria2安装并设置开机启动">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>系统：macOS High Sierra（10.13.3）</p>
+<hr>
+<p>国内的下载工具，一点都不纯粹，总要植入广告、商城等等无关的功能，像某度网盘这种还会搞限速，很烦。好在有Aria2这神器。Aria2 是一款轻量的、支持多协议以及多线程的下载工具，它同时支持了 HTTP/HTTPS, FTP, SFTP, BitTorrent 和 Metalink 多种下载方式。它是用命令行交互的，但是已经有人为它开发了交互界面，不用担心太难操作。下面跟着步骤来，安装成功后从此告别限速。</p>
+<a id="more"></a>
+<h3 id="1-安装Homebrew"><a href="#1-安装Homebrew" class="headerlink" title="1.安装Homebrew"></a>1.安装Homebrew</h3><p>Homebrew是macOS上著名的包管理工具,它可以方便地对应用以及各种插件进行管理。确保已经安装<a href="https://itunes.apple.com/us/app/xcode/id497799835?ls=1&amp;mt=12" target="_blank" rel="noopener">Xcode</a>后在Terminal（终端）执行以下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>更新Homebrew，依次执行下面命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装aria2"><a href="#2-安装aria2" class="headerlink" title="2.安装aria2"></a>2.安装aria2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install aria2</span><br></pre></td></tr></table></figure>
+<p>配置aria2，依次执行下面命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir .aria2</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .aria2</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch aria2.conf</span><br></pre></td></tr></table></figure>
+<p>注意配置文件要放在上面的路径上（~/.aria2/aria2.conf），aria2在执行时会检查这个路径，如果这个路径存在配置文件，就不用自己再指定配置文件了。这样还能方便设置开机自启动aria2。</p>
+<p>修改配置文件</p>
+<p>打开Finder（访达），按下组合键Shift+Cmd+G，输入Shift+Cmd+G，回车，双击打开aria2.conf文件，填入下面的配置，<a href="http://aria2c.com/usage.html" target="_blank" rel="noopener">参考</a>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">## 文件保存相关 ##</span><br><span class="line"></span><br><span class="line"># 文件的保存路径 (可使用绝对路径或相对路径), 默认: 当前启动位置</span><br><span class="line">dir=/Users/自己的用户名/Downloads</span><br><span class="line"># 启用磁盘缓存, 0 为禁用缓存, 需 1.16 以上版本, 默认:16M</span><br><span class="line">#disk-cache=32M</span><br><span class="line"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span><br><span class="line"># 预分配所需时间: none &lt; falloc ? trunc &lt; prealloc</span><br><span class="line"># falloc 和 trunc 则需要文件系统和内核支持</span><br><span class="line"># NTFS 建议使用 falloc, EXT3/4 建议 trunc, MAC 下需要注释此项</span><br><span class="line"># file-allocation=none</span><br><span class="line"># 断点续传</span><br><span class="line">continue=true</span><br><span class="line"></span><br><span class="line">## 下载连接相关 ##</span><br><span class="line"></span><br><span class="line"># 最大同时下载任务数, 运行时可修改, 默认:5</span><br><span class="line">max-concurrent-downloads=5</span><br><span class="line"># 同一服务器连接数, 添加时可指定, 默认:1</span><br><span class="line">max-connection-per-server=5</span><br><span class="line"># 最小文件分片大小, 添加时可指定, 取值范围 1M -1024M, 默认:20M</span><br><span class="line"># 假定 size=10M, 文件为 20MiB 则使用两个来源下载; 文件为 15MiB 则使用一个来源下载</span><br><span class="line">min-split-size=10M</span><br><span class="line"># 单个任务最大线程数, 添加时可指定, 默认:5</span><br><span class="line">split=5</span><br><span class="line"># 整体下载速度限制, 运行时可修改, 默认:0</span><br><span class="line">#max-overall-download-limit=0</span><br><span class="line"># 单个任务下载速度限制, 默认:0</span><br><span class="line">#max-download-limit=0</span><br><span class="line"># 整体上传速度限制, 运行时可修改, 默认:0</span><br><span class="line">#max-overall-upload-limit=0</span><br><span class="line"># 单个任务上传速度限制, 默认:0</span><br><span class="line">#max-upload-limit=0</span><br><span class="line"># 禁用 IPv6, 默认:false</span><br><span class="line">disable-ipv6=true</span><br><span class="line"></span><br><span class="line">## 进度保存相关 ##</span><br><span class="line"></span><br><span class="line"># 从会话文件中读取下载任务</span><br><span class="line">input-file=/Users/自己的用户名/.aria2/aria2.session</span><br><span class="line"># 在 Aria2 退出时保存 ` 错误 / 未完成 ` 的下载任务到会话文件</span><br><span class="line">save-session=/Users/自己的用户名/.aria2/aria2.session</span><br><span class="line"># 定时保存会话, 0 为退出时才保存, 需 1.16.1 以上版本, 默认:0</span><br><span class="line">save-session-interval=180</span><br><span class="line"></span><br><span class="line">## RPC 相关设置 ##</span><br><span class="line"></span><br><span class="line"># 启用 RPC, 默认:false</span><br><span class="line">enable-rpc=true</span><br><span class="line"># 允许所有来源, 默认:false</span><br><span class="line">rpc-allow-origin-all=true</span><br><span class="line"># 允许非外部访问, 默认:false</span><br><span class="line">rpc-listen-all=true</span><br><span class="line"># 事件轮询方式, 取值:[epoll, kqueue, port, poll, select], 不同系统默认值不同</span><br><span class="line">#event-poll=select</span><br><span class="line"># RPC 监听端口, 端口被占用时可以修改, 默认:6800</span><br><span class="line">#rpc-listen-port=6800</span><br><span class="line"># 设置的 RPC 授权令牌, v1.18.4 新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span><br><span class="line">rpc-secret=自己的密码</span><br><span class="line"># 设置的 RPC 访问用户名, 此选项新版已废弃, 建议改用 --rpc-secret 选项</span><br><span class="line">#rpc-user=&lt;USER&gt;</span><br><span class="line"># 设置的 RPC 访问密码, 此选项新版已废弃, 建议改用 --rpc-secret 选项</span><br><span class="line">#rpc-passwd=&lt;PASSWD&gt;</span><br><span class="line"></span><br><span class="line">## BT/PT 下载相关 ##</span><br><span class="line"></span><br><span class="line"># 当下载的是一个种子(以.torrent 结尾) 时, 自动开始 BT 任务, 默认:true</span><br><span class="line">#follow-torrent=true</span><br><span class="line"># BT 监听端口, 当端口被屏蔽时使用, 默认:6881-6999</span><br><span class="line">listen-port=51413</span><br><span class="line"># 单个种子最大连接数, 默认:55</span><br><span class="line">#bt-max-peers=55</span><br><span class="line"># 打开 DHT 功能, PT 需要禁用, 默认:true</span><br><span class="line">enable-dht=false</span><br><span class="line"># 打开 IPv6 DHT 功能, PT 需要禁用 </span><br><span class="line">#enable-dht6=false</span><br><span class="line"># DHT 网络监听端口, 默认:6881-6999</span><br><span class="line">#dht-listen-port=6881-6999</span><br><span class="line"># 本地节点查找, PT 需要禁用, 默认:false</span><br><span class="line">#bt-enable-lpd=false</span><br><span class="line"># 种子交换, PT 需要禁用, 默认:true</span><br><span class="line">enable-peer-exchange=false</span><br><span class="line"># 每个种子限速, 对少种的 PT 很有用, 默认:50K</span><br><span class="line">#bt-request-peer-speed-limit=50K</span><br><span class="line"># 客户端伪装, PT 需要</span><br><span class="line">peer-id-prefix=-TR2770-</span><br><span class="line">user-agent=Transmission/2.77</span><br><span class="line"># 当种子的分享率达到这个数时, 自动停止做种, 0 为一直做种, 默认:1.0</span><br><span class="line">seed-ratio=0</span><br><span class="line"># 强制保存会话, 即使任务已经完成, 默认:false</span><br><span class="line"># 较新的版本开启后会在任务完成后依然保留.aria2 文件</span><br><span class="line">#force-save=false</span><br><span class="line"># BT 校验相关, 默认:true</span><br><span class="line">#bt-hash-check-seed=true</span><br><span class="line"># 继续之前的 BT 任务时, 无需再次校验, 默认:false</span><br><span class="line">bt-seed-unverified=true</span><br><span class="line"># 保存磁力链接元数据为种子文件(.torrent 文件), 默认:false</span><br><span class="line">bt-save-metadata=true</span><br></pre></td></tr></table></figure></p>
+<p>上面配置需要自己修改四个位置，<br><code>dir=/Users/自己的用户名/Downloads</code><br><code>input-file=/Users/自己的用户名/.aria2/aria2.session</code><br><code>rpc-secret=自己的密码</code><br><code>save-session=/Users/自己的用户名/.aria2/aria2.session</code></p>
+<p>aria2用session文件保存下载进度等信息，创建session文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch  ~/.aria2/aria2.session</span><br></pre></td></tr></table></figure></p>
+<p>如果按照上面的步骤配置，启动aria2只需执行下面命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -D</span><br></pre></td></tr></table></figure></p>
+<p>如果配置文件放在其他路径，启动aria2需要指定配置文件的路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c --conf-path=<span class="string">"/xxxxx/xxxxxx/aria2.conf"</span> -D</span><br></pre></td></tr></table></figure></p>
+<p>至此，aria2已经可以启动使用了，如果不习惯使用命令行，可以使用GUI（用户界面）。</p>
+<h3 id="3-安装webui-aria2"><a href="#3-安装webui-aria2" class="headerlink" title="3.安装webui-aria2"></a>3.安装webui-aria2</h3><p>这个GUI其实就是个网页。进入<a href="https://github.com/ziahamza/webui-aria2" target="_blank" rel="noopener">webui-aria2</a>项目页，找到绿色的<code>clone or download</code>按钮，点击选择<code>Download ZIP</code>下载后解压。把解压后的文件夹移到自己想要放的位置，找到并打开configuration.js文件，根据先前设置的<code>rpc-secret=自己的密码</code>，修改<code>token:自己的密码</code>。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11246403-733b7a81f5738621.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改密码"></p>
+<p>找到并打开index.html文件，如果页面报错，重新执行下面命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -D</span><br></pre></td></tr></table></figure></p>
+<p>如果有仔细按照步骤安装，此时可以正常使用了。可以把这个页面保存为书签，方便使用。每次重新开机后，执行<code>aria2c -D</code>命令后在浏览器打开书签就可以使用了。</p>
+<h3 id="4-设置开机自启动"><a href="#4-设置开机自启动" class="headerlink" title="4.设置开机自启动"></a>4.设置开机自启动</h3><p>每次开机后都要重新执行命令才能下载，太繁琐。可以把软件设置为开机自启动，懒人福音。关于开机启动，这里有详细<a href="https://www.jianshu.com/p/eee8a7de179c" target="_blank" rel="noopener">参考</a>。</p>
+<p>创建plist文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/Library/LaunchAgents/aria2.plist</span><br></pre></td></tr></table></figure></p>
+<p>打开Finder（访达），按下组合键Shift+Cmd+G，输入Shift+Cmd+G，回车，用文本编辑器打开aria2.plist文件，复制粘贴下面内容，保存。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"encoding="utf-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC"-//Apple//DTD PLIST 1.0//EN"</span></span><br><span class="line"><span class="meta">"http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>KeepAlive<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>RunAtLoad<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Label<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>aria2<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>ProgramArguments<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/bin/aria2c<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>-D<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>WorkingDirectory<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>/Users/Roy/Downloads<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>修改<a href="https://ss64.com/bash/chmod.html" target="_blank" rel="noopener">文件权限</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 ~/Library/LaunchAgents/aria2.plist</span><br></pre></td></tr></table></figure></p>
+<p>添加自启动项<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">launchctl load ~/Library/LaunchAgents/aria2.plist</span><br></pre></td></tr></table></figure></p>
+<p>启动自启动项<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">launchctl start aria2</span><br></pre></td></tr></table></figure></p>
+<p>好了，下次开机aria2就会自己启动，直接进入浏览器打开书签即可进行下载。</p>
+<h3 id="4-让aria2接管Chrome下载任务"><a href="#4-让aria2接管Chrome下载任务" class="headerlink" title="4.让aria2接管Chrome下载任务"></a>4.让aria2接管Chrome下载任务</h3><p>安装<a href="https://chrome.google.com/webstore/detail/aria2c-integration/jpogdnhieffjholfeomcnbjanmgahndg?hl=en-US" target="_blank" rel="noopener">Aria2c Integration</a>插件。</p>
+<p>右击插件图标，选择Option进入设置。<img src="https://upload-images.jianshu.io/upload_images/11246403-5b19a03edd77d305.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000" alt="">RPC Secret填入先前aria2.conf配置文件设置的<code>rpc-secret=自己的密码</code>。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11246403-1fc09011856238c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">如图，上面两个勾打上，File Size填入2M，这样设置，Chrome下载的文件大于或等于2M时就会自动调用aria2进行下载。如果填入的值足够小，如0.001M，aria2就会接管所有下载任务。如果碰到无法自动下载的情况，可右击要下载的文件，选择<code>Download with aria2</code> 。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/macOS/" rel="tag"># macOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/11/控制macOS的开机启动/" rel="next" title="控制macOS的开机启动">
+                <i class="fa fa-chevron-left"></i> 控制macOS的开机启动
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/23/GitHub多账户及SSH密钥配置/" rel="prev" title="GitHub多账户及SSH密钥配置">
+                GitHub多账户及SSH密钥配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+          <div style="text-align:center;">
+              <button class="btn" id="load-comments-btn" onclick="loadcomments.load();">加载评论</button>
+          </div>
+
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTk1OC8xMjQ5NA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Byron" />
+            
+              <p class="site-author-name" itemprop="name">Byron</p>
+              <p class="site-description motion-element" itemprop="description">我是林仰海，也叫Byron。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Homebrew"><span class="nav-number">1.</span> <span class="nav-text">1.安装Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装aria2"><span class="nav-number">2.</span> <span class="nav-text">2.安装aria2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装webui-aria2"><span class="nav-number">3.</span> <span class="nav-text">3.安装webui-aria2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设置开机自启动"><span class="nav-number">4.</span> <span class="nav-text">4.设置开机自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-让aria2接管Chrome下载任务"><span class="nav-number">5.</span> <span class="nav-text">4.让aria2接管Chrome下载任务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Byron</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65761967";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/04/16/告别迅雷，aria2安装并设置开机启动/';
+        this.page.identifier = '2018/04/16/告别迅雷，aria2安装并设置开机启动/';
+        this.page.title = '告别迅雷，aria2安装并设置开机启动';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://byron-lin.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      // 
+      //   loadComments();
+      // 
+
+      var loadcomments = {
+        load : function  () {
+          $('#load-comments-btn').remove();
+          loadComments();
+
+          //Load Livere
+          (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+
+        }
+      };
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("YlXbYGtpcPdUtyIdFKJIc4XM-gzGzoHsz", "99siOy3Nv6jvIovSjXjrs4nj");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.get('time'));
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
