@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用wget下载整个网页（img，CSS，js）]]></title>
+    <url>%2F2018%2F05%2F13%2F%E4%BD%BF%E7%94%A8wget%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%BD%91%E9%A1%B5%EF%BC%88img%EF%BC%8CCSS%EF%BC%8Cjs%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[系统：macOS High Sierra（10.13.3） 使用brew安装wget1brew install wget 使用下面命令下载网页1wget -p -k -e robots=off-U 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20070802 SeaMonkey/1.1.4' https://www.google.com]]></content>
+      <tags>
+        <tag>技术</tag>
+        <tag>前端</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GitHub多账户及SSH密钥配置]]></title>
     <url>%2F2018%2F04%2F23%2FGitHub%E5%A4%9A%E8%B4%A6%E6%88%B7%E5%8F%8ASSH%E5%AF%86%E9%92%A5%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[创建新的SSH密钥，并添加到ssh-agent创建密钥1ssh-keygen -t rsa -b 4096 -C "your_email@example.com" 输入保存密钥的绝对路径和文件名，如/Users/Steve/.ssh/new_id_rsa1Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter] 两次输入确认密钥的密码12Enter passphrase (empty for no passphrase): [Type a passphrase]Enter same passphrase again: [Type passphrase again] 把密钥添加到ssh-agent 把ssh-agent在后台启动1eval "$(ssh-agent -s)" 配置~/.ssh/config文件，如果没有该文件，通过touch config命令创建。注意HostName github.com12345Host github.com HostName github.com AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/new_id_rsa 把私钥添加到ssh-agent并存入keychain，执行命令会要求你输入密码1ssh-add -K ~/.ssh/new_id_rsa 添加SSH公钥到你的GitHub账户把公钥复制到剪贴板1pbcopy &lt; ~/.ssh/new_id_rsa.pub 进入Github账户找到Settings，点击进入后选择SSH and GPG keys，点击New SSH key。在Title框内填入标题，在框粘贴刚才复制的公钥。最后点击Add SSH key。 测试命令1ssh -T git@github.com 如果有两个GitHub账户，如何配置SSH密钥并使用？假设现在有两个GitHub账户，对应两个SSH密钥old_id_rsa和new_id_rsa。如果还没有密钥，分别按上面的步骤创建和添加。 修改config文件如下1234567891011Host old.github.com HostName github.com AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/old_id_rsaHost new.github.com HostName github.com AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/new_id_rsa 测试old.github.com1ssh -T git@old.github.com 测试new.github.com1ssh -T git@new.github.com 如果报错了，可以使用下面命令查看详细的报错信息1ssh -vT git@new.github.com 使用需要注意，git@后要改为对应账户的别名。如new_id_rsa密钥对应的GitHub账户上有个仓库test.git，且你的GitHub用户名是username，使用下面命令克隆1git clone git@new.github.com:username/test.git 如old_id_rsa密钥对应的GitHub账户上有个仓库test.git，且你的GitHub用户名是oldman，使用下面命令克隆1git clone git@old.github.com:oldman/test.git 避免git错用密钥，把git全局的用户名和邮箱删除12git config --global --unset user.emailgit config --global --unset user.name 删除后，以后进入每个仓库都要指定该仓库局部的user.mail和user.name。 12git config user.email "you@example.com"git config user.name "Your Name" 参考Connecting to GitHub with SSH Generating a new SSH key and adding it to the ssh-agentAdding a new SSH key to your GitHub account Multiple GitHub Accounts &amp; SSH Config]]></content>
@@ -43,8 +53,8 @@
     <url>%2F2018%2F03%2F29%2F2017%E5%B9%B4%E7%83%AD%E9%97%A8%E5%9F%8E%E5%B8%82%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E7%BB%9F%E8%AE%A1%2F</url>
     <content type="text"><![CDATA[]]></content>
       <tags>
-        <tag>空气质量</tag>
         <tag>生活</tag>
+        <tag>空气质量</tag>
         <tag>数据</tag>
       </tags>
   </entry>
