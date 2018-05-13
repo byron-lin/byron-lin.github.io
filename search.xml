@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[使用wget下载整个网页（img，CSS，js）]]></title>
     <url>%2F2018%2F05%2F13%2F%E4%BD%BF%E7%94%A8wget%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%BD%91%E9%A1%B5%EF%BC%88img%EF%BC%8CCSS%EF%BC%8Cjs%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[系统：macOS High Sierra（10.13.3） 使用brew安装wget 1brew install wget 使用下面命令下载网页1wget -p -k -e robots=off-U 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20070802 SeaMonkey/1.1.4' https://www.google.com]]></content>
+    <content type="text"><![CDATA[系统：macOS High Sierra（10.13.3） 使用brew安装wget 1brew install wget 使用下面命令下载网页1wget -p -k -e robots=off -U 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20070802 SeaMonkey/1.1.4' https://www.google.com]]></content>
       <tags>
         <tag>技术</tag>
         <tag>前端</tag>
@@ -85,8 +85,8 @@
         <category>认知</category>
       </categories>
       <tags>
-        <tag>感想</tag>
         <tag>认知</tag>
+        <tag>感想</tag>
       </tags>
   </entry>
   <entry>
@@ -97,8 +97,8 @@
         <category>感想</category>
       </categories>
       <tags>
-        <tag>Life</tag>
         <tag>感想</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
   <entry>
