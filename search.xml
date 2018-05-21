@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[懂你英语-L1-U1-P1]]></title>
+    <url>%2F2018%2F05%2F21%2F%E6%87%82%E4%BD%A0%E8%8B%B1%E8%AF%AD-L1-U1-P1%2F</url>
+    <content type="text"><![CDATA[流利说-懂你英语-Level1-Unit1-Part1 PART·1ListerningName &amp; Gender This is Dan. Dan is a man. This is Tina. Tina is a woman. Who is a man? Dan is a man. This is Ben. Ben is a boy. This is Lisa. Lisa is a girl. Who is a boy? Ben is a boy. This is Dan. This is Ben. Dan is a man, and Ben is a boy. Who is the man? Dan is the man. This is Tina. This is Lisa. Tina is a woman, and Lisa is a girl. Who is the woman? Tina is the woman. Dan is a man. Ben is a boy. Here are three people. This person is a man. This person is a woman. This person isn’t a woman. This person isn’t a man. Which person is a woman? This person is a woman, her name is Tina. Is this person a woman? This person is a woman. This person is a man. This person isn’t a boy. VocabularyDaily Objectsa doorThis is a door.a windowThis is a window.a chairThis is a chair.stairsThese are stairs.a keyThis is a key.Where’s the door?This is a door.Where’s the chair?This is a chair.Where’s the key?This is a key.a bookThis is a book.a deskThis is a desk.a pencilThis is a pencil.a cellphoneThis is a cellphone.a penThis is a pen.Where is the book?This is the book.Where is the pencil?This is the pencil.Where is the pen?This is a pen.a doorDOORa windowWINDOWa chairCHAIRstairsSTAIRSa keyKEYa doorThis is a door.a windowThis is a window.stairsThese are stairs.This is a door.This is a chair.This is a key.a bookBOOKa deskDESKa pencilPENCILa cellphonCELLPHONEa penPENa booka pencilThis is a pencila penThis is a pen.This is a book.This is a pencil.This is a pen. VocabularyDaily Actionssit downstand upclose the dooropen the doorpick up the keysput down the keyssit downclose the doorpick up the keyssit downclose the doorpick up the keys DialogueWhat’s Your Name?Here are two people, a man and a women.Hello, my name is Dan. What is your name?Hello, Dan. My name is Tina.Your name is Tina?Yes, that’s right. My name is Tina.And your name is Dan, that’s right?Yes, that’s right. My name is Dan.It’s nice to meet you, Dan.It’s nice to meet you, Tina. Who is the women?Tina is the women.Who is Tina?This is Tina.Hello, My name is Dan.What is your name?Hello, Dan. My name is Tina.Yes, that’s right.It’s nice to meet you. Here are two people, a boy and a girl.Hi, my name is Ben. What’s your name?Hi, Ben. My name is Lisa.Lisa?Yes, Lisa. L I S A.Who is a girl?Lisa is a girl.Hi, Ben. My name is Lisa.Here are two people, a boy and a girl. Letters&amp;NumbersLetters A-EAaan applean armAfricaAsiaan antBba booka bananaa birda boya bankThis apple is green.Here is Africa.This is an antThis is a bird.This is a bank.Cca citya clocka cara circlecoldDda deska daya doordowna dressEean eareastEgyptan elevatorelevenThis city is England.This is car.It’s cold.This door’s close.He is sitting down.We hear with our ears.This is a country in Africa.This is the number of eleven. Letters&amp;Numbers1-10one two three four five six seven eight nine ten]]></content>
+      <tags>
+        <tag>英语</tag>
+        <tag>学习</tag>
+        <tag>资料</tag>
+        <tag>流利说</tag>
+        <tag>懂你英语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用wget下载整个网页（img，CSS，js）]]></title>
     <url>%2F2018%2F05%2F13%2F%E4%BD%BF%E7%94%A8wget%E4%B8%8B%E8%BD%BD%E6%95%B4%E4%B8%AA%E7%BD%91%E9%A1%B5%EF%BC%88img%EF%BC%8CCSS%EF%BC%8Cjs%EF%BC%89%2F</url>
     <content type="text"><![CDATA[系统：macOS High Sierra（10.13.3） 使用brew安装wget 1brew install wget 使用下面命令下载网页1wget -p -k -e robots=off -U 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20070802 SeaMonkey/1.1.4' https://www.google.com]]></content>
